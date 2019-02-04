@@ -1,0 +1,25 @@
+Enable-Migrations -ContextTypeName InventoryContext -MigrationsDirectory Migrations\RublBum
+add-migration -ConfigurationTypeName WebApplication1.Migrations.InventoryDb.Configuration "InitialCreate"
+update-database -ConfigurationTypeName WebApplication1.Migrations.InventoryDb.Configuration 
+
+
+
+
+
+     Request a = new Request
+                {
+                    Month = DateTime.Today
+                };
+            Instrument instrument = new Instrument
+            
+            {
+                Name = "Стул",
+                Kolvo = 1,
+                Comments = "",
+                RequestId = a
+            };
+
+            a.Instruments = new List<Instrument>();
+            a.Instruments.Add(instrument);
+            context.Instruments.AddOrUpdate(instrument);
+            context.Request.AddOrUpdate(a);

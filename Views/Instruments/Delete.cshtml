@@ -1,0 +1,40 @@
+﻿@model WebApplication1.Models.Instrument
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удалить</h2>
+
+<h3>Вы уверены?</h3>
+<div>
+    <h4>Инструмент</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kolvo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kolvo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+            <p><a class="btn btn-default" href="@Url.Action("Index", "Requests")">Заявки &raquo;</a></p>
+        </div>
+    }
+</div>

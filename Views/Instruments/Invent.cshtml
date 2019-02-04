@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebApplication1.Models.Instrument>
+
+@{
+    ViewBag.Title = "Invent";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Invent</title>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kolvo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kolvo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id=item.InstrumentID }) |
+                @Html.ActionLink("Информация", "Details", new { id=item.InstrumentID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id=item.InstrumentID })
+            </td>
+        </tr>
+        
+    }
+    
+    </table>
+    <p>
+        @Html.ActionLink("Добавить инструмент", "Create", new { id = ViewBag.id })
+    </p>
+    <p><a class="btn btn-default" href="@Url.Action("Index", "Requests")">Назад &raquo;</a></p>
+</body>
+</html>

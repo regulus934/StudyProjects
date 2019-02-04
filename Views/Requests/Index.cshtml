@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebApplication1.Models.InventoryDb.Request>
+
+<head>
+    <title>
+        Заявки
+        </title>
+    <script>
+        function Open(id) {
+        $.ajax({
+            url: "/Instruments/Invent",
+            type: "GET",
+            data: id,
+            success: window.location.replace("/Instruments/Invent/"+id)
+        });
+    };
+
+    </script>
+ </head>
+<h2>Заявки</h2>
+
+<p>
+    @Html.ActionLink("Создать новую заявку", "Create")
+</p>
+
+
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <form action=""> 
+                <a href="#" onclick="Open(@item.id)">@Html.DisplayFor(modelItem => item.Month)</a>
+            </form>
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+
+    }
+
+        </table>
+
+
