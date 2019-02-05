@@ -9,5 +9,6 @@ Install-Package EntityFramework -IncludePrerelease<br>
 Enable-Migrations -ContextTypeName InventoryContext -MigrationsDirectory Migrations\RublBum<br>
 add-migration -ConfigurationTypeName WebApplication1.Migrations.RublBum.Configuration "InitialCreate"<br>
 update-database -ConfigurationTypeName WebApplication1.Migrations.RublBum.Configuration <br>
-
-
+<br>
+<br>
+P.S. Before you start, please rebuild the project (Build-Rebuild project)
